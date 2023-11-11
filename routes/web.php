@@ -8,3 +8,4 @@ Route::fallback(function () {
 });
 
 Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/rtdb', [LandingPageController::class, 'indexRTDB']);

@@ -12,4 +12,10 @@ class LandingPageController extends Controller
     {
         $this->setup('firebase/larabase-9bc91-firebase-adminsdk-z6131-cf34435f7d.json', 'https://larabase-9bc91-default-rtdb.asia-southeast1.firebasedatabase.app');
     }
+
+    public function indexRTDB()
+    {
+        $this->setup('firebase/larabase-9bc91-firebase-adminsdk-z6131-cf34435f7d.json', 'https://larabase-9bc91-default-rtdb.asia-southeast1.firebasedatabase.app');
+        dd($this->getValue('kontrol'));
+    }
 }

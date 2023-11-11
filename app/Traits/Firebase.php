@@ -11,9 +11,10 @@ trait Firebase
 
     public function setup($config_path, $database_uri)
     {
-        $this->factory = (new Factory())->withServiceAccount(public_path($config_path))->withDatabaseUri($database_uri);
+        $this->factory   = (new Factory())->withServiceAccount(public_path($config_path))->withDatabaseUri($database_uri);
         $this->firestore = $this->factory->createFirestore();
-        $this->database = $this->firestore->database();
+        $this->rtdb      = $this->factory->createDatabase();
+        $this->database  = $this->firestore->database();
     }
 
     public function countCollection($dataArray = null, $collection = null)
@@ -42,5 +43,16 @@ trait Firebase
         }
 
         return $sumField;
+    }
+
+    public function getValue($reference)
+    {
+        $data = $this->rtdb->getReference($reference)->getValue();
+
+        if (!$data) {
+            return 404;
+        }
+
+        return $data;
     }
 }
