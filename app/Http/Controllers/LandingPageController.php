@@ -10,6 +10,6 @@ class LandingPageController extends Controller
 
     public function index()
     {
-        $this->setup($config_path, $database_uri);
+        $this->setup('firebase/larabase-9bc91-firebase-adminsdk-z6131-cf34435f7d.json', 'https://larabase-9bc91-default-rtdb.asia-southeast1.firebasedatabase.app');
     }
 }
